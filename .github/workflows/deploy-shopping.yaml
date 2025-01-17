@@ -55,7 +55,7 @@ jobs:
       run: |
           echo "REGISTRY_NAME: ${{ steps.deploy_infra.outputs.acrName }}"
           echo "RG_NAME: ${{ steps.deploy_infra.outputs.resourceGroupName }}"
-          echo "AKS_CLUSTER: ${{ steps.deploy_infra.outputs.aksClusterName }}"
+          echo "AKS_CLUSTER: ${{ steps.deploy_infra.outputs.aksShoppingClusterName }}"
   
 
   build-and-push:
@@ -63,7 +63,7 @@ jobs:
     needs: deploy-infra
     env:
       REGISTRY: '${{ needs.deploy-infra.outputs.REGISTRY_NAME }}.azurecr.io'
-      REGISTRY_NAME: ${{ needs.deploy-infra.outputs.REGISTRY_NAME }}
+      REGISTRY_NAME: '${{ needs.deploy-infra.outputs.REGISTRY_NAME }}'
       IMAGE_API: shopping-api
       IMAGE_CLIENT: shopping-client
     steps:
