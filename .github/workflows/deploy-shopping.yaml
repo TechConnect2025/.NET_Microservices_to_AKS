@@ -10,6 +10,7 @@ on:
       - '.github/workflows/**'
       - 'manifests/**'
       - 'infra/**'
+      - '**/Dockerfile'
 
 permissions:
   id-token: write
