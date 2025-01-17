@@ -93,12 +93,12 @@ jobs:
 
     - name: Build and push API Docker image
       run: |
-        docker build -t $REGISTRY/$IMAGE_API:latest -f Shopping.API/Dockerfile .
+        docker build -t $REGISTRY/$IMAGE_API:latest -f ./Shopping/Shopping.API/Dockerfile .
         docker push $REGISTRY/$IMAGE_API:latest
 
     - name: Build and push Client Docker image
       run: |
-        docker build -t $REGISTRY/$IMAGE_CLIENT:latest -f Shopping.Client/Dockerfile .
+        docker build -t $REGISTRY/$IMAGE_CLIENT:latest -f ./Shopping/Shopping.Client/Dockerfile .
         docker push $REGISTRY/$IMAGE_CLIENT:latest
 
   deploy:
