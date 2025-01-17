@@ -48,6 +48,7 @@ jobs:
          scope: subscription
          location: 'eastus2'
          parameters-file: 'infra/main.parameters.json'
+         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
     # Collect outputs if any from the ARM deployment
     - name: Get Outputs
       id: get_outputs
