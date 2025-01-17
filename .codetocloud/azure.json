@@ -1,0 +1,51 @@
+{
+  "projectType": "azd",
+  "iacTypes": [
+    "bicep"
+  ],
+  "resources": [
+    {
+      "type": "azurekubernetesservice",
+      "instances": [
+        {
+          "name": "shoppingcluster"
+        }
+      ]
+    }
+  ],
+  "bindings": [],
+  "services": [
+    {
+      "host": "${azurekubernetesservice.shoppingcluster}",
+      "language": "dotnet",
+      "project": "Shopping/Shopping.API/",
+      "port": "80"
+    },
+    {
+      "host": "${azurekubernetesservice.shoppingcluster}",
+      "language": "dotnet",
+      "project": "Shopping/Shopping.Client/",
+      "port": "80"
+    }
+  ],
+  "settings": [
+    {
+      "resource": "${azurekubernetesservice.shoppingcluster}",
+      "envs": [
+        {
+          "name": "ASPNETCORE_ENVIRONMENT",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "resource": "${azurekubernetesservice.shoppingcluster}",
+      "envs": [
+        {
+          "name": "ASPNETCORE_ENVIRONMENT",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

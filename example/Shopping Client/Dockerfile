@@ -1,10 +1,10 @@
-# Use the official .NET image as a parent image
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
 
-# Use the SDK image to build the application
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY ["Shopping.Client/Shopping.Client.csproj", "Shopping.Client/"]
 RUN dotnet restore "Shopping.Client/Shopping.Client.csproj"
@@ -12,11 +12,9 @@ COPY . .
 WORKDIR "/src/Shopping.Client"
 RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build
 
-# Publish the application
 FROM build AS publish
 RUN dotnet publish "Shopping.Client.csproj" -c Release -o /app/publish
 
-# Use the base image to run the application
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .

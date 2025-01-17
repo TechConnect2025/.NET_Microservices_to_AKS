@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: shoppingclient-secret
+type: Opaque
+data:
+  shoppingservice-url: http://shoppingapi-service

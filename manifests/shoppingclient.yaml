@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-client
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: shopping-client
+  template:
+    metadata:
+      labels:
+        app: shopping-client
+    spec:
+      containers:
+      - name: shopping-client
+        image: <ACR Name>/shopping-client:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Production"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shopping-client
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: shopping-client
