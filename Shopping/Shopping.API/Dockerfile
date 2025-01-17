@@ -6,11 +6,20 @@ EXPOSE 80
 # Use the SDK image to build the application
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Shopping/Shopping.API/Shopping.API.csproj", "Shopping.API/"]
+
+# Copy the .csproj and restore any dependencies (via dotnet restore)
+COPY Shopping/Shopping.API/Shopping.API.csproj Shopping.API/
 RUN dotnet restore "Shopping.API/Shopping.API.csproj"
-COPY . . 
-WORKDIR "/src/Shopping.API"
+
+# Copy the rest of the application files
+COPY . .
+
+# Set the working directory to the Shopping.API directory
+WORKDIR /src/Shopping.API
+
+# Build the project
 RUN dotnet build "Shopping.API.csproj" -c Release -o /app/build
+
 
 # Publish the application
 FROM build AS publish
