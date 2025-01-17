@@ -50,7 +50,7 @@ module registry 'acr.bicep' = {
 
 // Deploy an Azure Kubernetes Service
 
-module aksShoppingclusterDeployment 'aks.bicep' = {
+module aksShoppingClusterDeployment 'aks.bicep' = {
 	name: 'aks-shoppingcluster-deployment'
 	scope: az.resourceGroup(resourceGroupName)
 	params: {
@@ -63,8 +63,11 @@ module aksShoppingclusterDeployment 'aks.bicep' = {
 
 
 
-output aksShoppingclusterId string = aksShoppingclusterDeployment.outputs.id
+output aksShoppingClusterId string = aksShoppingClusterDeployment.outputs.id
+output aksShoppingClusterName string = aksShoppingClusterDeployment.outputs.name
 output acrId string = registry.outputs.registryId
+output acrName string = registry.outputs.registryName
+output resourceGroupName string = resourceGroup.outputs.name
 output logAnalyticsWorkspaceId string = logAnalyticsWorkspace.outputs.workspaceId
 
 
