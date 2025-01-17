@@ -8,11 +8,12 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 
 # Copy the .csproj and restore any dependencies (via dotnet restore)
-COPY Shopping/Shopping.API/Shopping.API.csproj Shopping.API/
-RUN dotnet restore "Shopping.API/Shopping.API.csproj"
-
+#COPY Shopping/Shopping.API/Shopping.API.csproj Shopping.API/
 COPY . .  
+RUN dotnet restore "Shopping/Shopping.API/Shopping.API.csproj"
+
 RUN ls -la /src 
+RUN dotnet build "Shopping/Shopping.API/Shopping.API.csproj" -c Release -o /app/build
 
 
 # Publish the application
