@@ -11,14 +11,8 @@ WORKDIR /src
 COPY Shopping/Shopping.API/Shopping.API.csproj Shopping.API/
 RUN dotnet restore "Shopping.API/Shopping.API.csproj"
 
-# Copy the rest of the application files
-COPY . .
-
-# Set the working directory to the Shopping.API directory
-WORKDIR /src/Shopping.API
-
-# Build the project
-RUN dotnet build "Shopping.API.csproj" -c Release -o /app/build
+COPY . .  
+RUN ls -la /src 
 
 
 # Publish the application
