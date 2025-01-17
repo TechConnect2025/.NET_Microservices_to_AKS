@@ -5,8 +5,8 @@ on:
     branches:
       - master
     paths:
-      - 'Shopping.API/**'
-      - 'Shopping.Client/**'
+      - 'Shopping/Shopping.API/**'
+      - 'Shopping/Shopping.Client/**'
       - '.github/workflows/**'
       - 'manifests/**'
       - 'infra/**'
