@@ -7,11 +7,11 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
 COPY Shopping/Shopping.API /src/Shopping.API
-#COPY ["Shopping.API/Shopping.API.csproj", "Shopping.API/"]
-RUN dotnet restore "Shopping.API/Shopping.API.csproj"
-COPY . .
-WORKDIR "/src/Shopping.API"
-RUN dotnet build "Shopping.API.csproj" -c Release -o /app/build
+# Restore the dependencies
+RUN dotnet restore "Shopping/Shopping.API/Shopping.API.csproj"
+
+# Build the project
+RUN dotnet build "Shopping/Shopping.API/Shopping.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Shopping.API.csproj" -c Release -o /app/publish
