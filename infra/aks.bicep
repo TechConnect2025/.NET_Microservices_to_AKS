@@ -18,6 +18,11 @@ module aks 'br/public:avm/res/container-service/managed-cluster:0.6.1' = {
 		managedIdentities: {
 			systemAssigned: true
 		}
+		enableRBAC: true
+		aadProfile: {
+			aadProfileEnableAzureRBAC: true
+			aadProfileManaged: true
+		}
 		monitoringWorkspaceResourceId: logAnalyticsWorkspaceId
 		primaryAgentPoolProfiles:	[
 			{
