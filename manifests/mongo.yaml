@@ -12,6 +12,8 @@ spec:
       labels:
         app: mongodb
     spec:
+      nodeSelector:
+        app: mongodb
       containers:
       - name: mongodb
         image: mongo:latest
