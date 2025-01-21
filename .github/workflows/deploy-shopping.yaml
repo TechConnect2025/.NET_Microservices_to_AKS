@@ -62,6 +62,8 @@ jobs:
       AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    outputs:
+      REGISTRY: ${{ env.REGISTRY }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -121,7 +123,7 @@ jobs:
         client-id: ${{ env.AZURE_CLIENT_ID }}
         tenant-id: ${{ env.AZURE_TENANT_ID }}
         subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
-        
+
     - uses: azure/use-kubelogin@v1
       with:
         kubelogin-version: 'v0.0.24'
@@ -140,7 +142,8 @@ jobs:
       uses: azure/setup-kubectl@v3
 
     - name: Replace ACR Name in manifests
-      run: find ./manifests -type f -name "*.yaml" -exec sed -i 's#<ACR Name>#$REGISTRY#g' {} +
+      run: |
+        find manifests -type f -exec sed -i "s/<ACR Name>/${{ needs.build-and-push.outputs.REGISTRY }}/g" {} +
 
     - uses: Azure/k8s-deploy@v5
       with:
