@@ -12,6 +12,11 @@ spec:
       labels:
         app: shopping-client
     spec:
+      tolerations:
+      - key: app
+        operator: Equal
+        value: shopping-client
+        effect: NoSchedule
       nodeSelector:
           app: shopping-client
       containers:

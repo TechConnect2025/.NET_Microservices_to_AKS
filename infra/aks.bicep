@@ -55,8 +55,11 @@ module aks 'br/public:avm/res/container-service/managed-cluster:0.6.1' = {
 				minCount: 1
 				maxCount: 3
 				nodeLabels: {
-					app: 'shoppingapi'
+					app: 'shopping-api'
 				}
+				nodeTaints: [
+					'app=shopping-api:NoSchedule'
+				]
 				availabilityZones: [
 					1,3
 				]
@@ -72,8 +75,11 @@ module aks 'br/public:avm/res/container-service/managed-cluster:0.6.1' = {
 				minCount: 1
 				maxCount: 3
 				nodeLabels: {
-					app: 'shoppingclient'
+					app: 'shopping-client'
 				}
+				nodeTaints: [
+					'app=shopping-client:NoSchedule'
+				]
 				availabilityZones: [
 					1,3
 				]
@@ -91,6 +97,9 @@ module aks 'br/public:avm/res/container-service/managed-cluster:0.6.1' = {
 				nodeLabels: {
 					app: 'mongodb'
 				}
+				nodeTaints: [
+					'app=mongodb:NoSchedule'
+				]
 				availabilityZones: [
 					1,3
 				]

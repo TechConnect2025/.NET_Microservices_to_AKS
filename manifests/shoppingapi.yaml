@@ -12,6 +12,11 @@ spec:
       labels:
         app: shopping-api
     spec:
+      tolerations:
+      - key: app
+        operator: Equal
+        value: shopping-api
+        effect: NoSchedule
       nodeSelector:
         app: shopping-api
       containers:

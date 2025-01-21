@@ -12,6 +12,11 @@ spec:
       labels:
         app: mongodb
     spec:
+      tolerations:
+      - key: app
+        operator: Equal
+        value: mongodb
+        effect: NoSchedule
       nodeSelector:
         app: mongodb
       containers:
