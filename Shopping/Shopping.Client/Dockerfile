@@ -11,7 +11,7 @@ COPY . .
 RUN dotnet restore "Shopping/Shopping.Client/Shopping.Client.csproj"
 # COPY . .
 # WORKDIR "/src/Shopping.Client"
-RUN dotnet build "Shopping.Client.csproj" -c Release -o /app/build
+RUN dotnet build "Shopping/Shopping.Client/Shopping.Client.csproj" -c Release -o /app/build
 
 # Publish the application
 FROM build AS publish
