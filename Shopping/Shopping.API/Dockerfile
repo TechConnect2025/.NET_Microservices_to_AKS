@@ -18,7 +18,7 @@ RUN dotnet build "Shopping/Shopping.API/Shopping.API.csproj" -c Release -o /app/
 
 # Publish the application
 FROM build AS publish
-RUN dotnet publish "Shopping.API.csproj" -c Release -o /app/publish
+RUN dotnet publish "Shopping/Shopping.API/Shopping.API.csproj" -c Release -o /app/publish
 
 # Use the base image to run the application
 FROM base AS final
