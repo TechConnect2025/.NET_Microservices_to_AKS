@@ -45,7 +45,11 @@ module registry 'acr.bicep' = {
 		name: 'shoppingregistry${resourceToken}'
 		location: location
 		sku: acrSku
+		aksIdentityId: aksShoppingClusterDeployment.outputs.identityId
 	}
+	dependsOn: [
+		resourceGroup
+	]
 }
 
 // Deploy an Azure Kubernetes Service
@@ -60,8 +64,6 @@ module aksShoppingClusterDeployment 'aks.bicep' = {
 		tags: tags
 	}
 }
-
-
 
 output aksShoppingClusterId string = aksShoppingClusterDeployment.outputs.id
 output aksShoppingClusterName string = aksShoppingClusterDeployment.outputs.name

@@ -134,5 +134,5 @@ module aks 'br/public:avm/res/container-service/managed-cluster:0.6.1' = {
 
 output id string = aks.outputs.resourceId
 output name string = aks.outputs.name
-//output identityPrincipalId string = aks.outputs.systemAssignedMIPrincipalId != null ? aks.outputs.systemAssignedMIPrincipalId : ''
+output identityId string = aks.outputs.systemAssignedMIPrincipalId?? '' // if null, return empty string
 output requestUrl string = aks.outputs.controlPlaneFQDN
