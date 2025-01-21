@@ -11,8 +11,6 @@ WORKDIR /src
 #COPY Shopping/Shopping.API/Shopping.API.csproj Shopping.API/
 COPY . .  
 RUN dotnet restore "Shopping/Shopping.API/Shopping.API.csproj"
-
-RUN ls -la /src 
 RUN dotnet build "Shopping/Shopping.API/Shopping.API.csproj" -c Release -o /app/build
 
 
