@@ -12,6 +12,8 @@ spec:
       labels:
         app: shopping-api
     spec:
+      nodeSelector:
+        app: shopping-api
       containers:
       - name: shopping-api
         image: <ACR Name>/shopping-api:latest
