@@ -3,5 +3,5 @@ kind: Secret
 metadata:
   name: shoppingclient-secret
 type: Opaque
-data:
+stringData:
   shoppingservice-url: http://shoppingapi-service
