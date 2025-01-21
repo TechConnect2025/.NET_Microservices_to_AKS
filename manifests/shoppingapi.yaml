@@ -26,12 +26,12 @@ spec:
         - containerPort: 80
         env:
         - name: ASPNETCORE_ENVIRONMENT
-          value: "Production"
-        - name: MongoDB__ConnectionString
+          value: Development
+        - name: DatabaseSettings__ConnectionString
           valueFrom:
-            secretKeyRef:
-              name: mongodb-secret
-              key: connectionString
+            configMapKeyRef:
+              name: mongo-configmap
+              key: connection_string
         resources:
           requests:
             memory: "64Mi"

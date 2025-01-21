@@ -26,7 +26,12 @@ spec:
         - containerPort: 80
         env:
         - name: ASPNETCORE_ENVIRONMENT
-          value: "Production"
+          value: Development
+        - name: ShoppingAPIUrl
+          valueFrom:
+              configMapKeyRef:
+                name: shoppingapi-configmap
+                key: shoppingapi_url
         resources:
           requests:
             memory: "64Mi"
