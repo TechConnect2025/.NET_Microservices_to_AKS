@@ -57,7 +57,43 @@ After using Copilot to generate the structure and some of the functionality for 
 
 ## Activities
 
+### Activity One: GitHub Actions
+
 Let's try to generate the GitHub Actions workflow ourselves. We showed some basic steps in the demo, but we had to make a few edits to the workflow and additional commands to make it work. Given the following information, try to use your knowledge and Copilot to generate the GitHub Actions workflow.
 
-1. We have IaC we need to deploy that's written in Bicep. 
+1. We have IaC we need to deploy that's written in Bicep using [Azure Verified Modules](https://aka.ms/avm). 
 2. Cluster is AAD enabled
+3. We need to build and push our container images using Docker and ACR. 
+
+Sample Commands:
+
+`@azure Add a step for replacing <ACR Name> placeholder in the AKS manifests.`
+
+`@azure Add a step to install Kubectl and Kubelogin before the K8s deploy.`
+
+`@azure Can you write a Dependabot workflow for me? `
+
+`@azure Can you setup X as an output for X stage?`
+
+`@azure What is the most secure method for logging into ACR in a GitHub Actions workflow?`
+
+### Activity Two: K8s Deployment
+
+Let's try to generate the AKS deployment files using Helm charts. We showed how to use Copilot to generate K8s manifests and deploy them using Kubectl. Using your knowledge and the information below try to generate the Helm charts to accomplish the same task. 
+
+1. You need these environment variables:
+   1. Shopping API
+      1. ASPNETCORE_ENVIRONMENT
+      2. DatabaseSettings__ConnectionString
+   2. Shopping Client
+      1. ShoppingAPIUrl
+
+Sample Commands:
+
+`@azure How can I use Helm to deploy my application?`
+
+`@azure Can you add these <Insert environment variables> into my chart template?`
+
+`@azure How do I manage secrets with Helm?`
+
+`@azure How can I use Kustomize to manage my deployment?`
