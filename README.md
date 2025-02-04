@@ -2,15 +2,15 @@
 
 ## Pre-requisites
 
-1. Azure Subscription
-2. GitHub Copilot enabled for repository
-3. Azure SPN or Managed Identity with Federated Credentials setup for your repository
-4. VSCode 
-5. VSCode GitHub Copilot for Azure Extension
+- [Azure Subscription](https://azure.microsoft.com/en-us/get-started/azure-portal/?msockid=0f1a5ac3b198646d36d24b1fb0cf65ca)
+- [GitHub Copilot enabled for repository](https://github.com/features/copilot)
+- [Azure SPN or Managed Identity with Federated Credentials setup for your repository](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp)
+- [VSCode](https://code.visualstudio.com/)
+- [VSCode GitHub Copilot for Azure Extension](https://learn.microsoft.com/en-us/azure/developer/github-copilot-azure/introduction)
 
 ## Demo Scenario
 
-We have customer Contoso who has a .NET 5 application with a frontend client, an API backend and a MongoDB. They're currently running on-premises and need assistance with migrating to Azure. They've decided they'd like to use AKS for all three services. You think that they should use an external MongoDB hosted on CosmosDB, but they're adamant they want to use AKS for it. They have also indicated that they want to use GitHub over Azure DevOps to handle code management and deployment. You help them set up some basic Iac using Bicep to do a POC of the platform. You then identify the pieces you need to do the migration: Dockerfiles (1 for the client, 1 for the API), a GitHub Actions workflow, and K8s manifest for the Kubernetes deployment. You're knowledgable about the process and technology, but you need to speed up the process. You decide to use GitHub Copilot for Azure to help you generate the deployment files. 
+We have customer Contoso who has a _.NET 5 application_ with a _frontend client, an API backend and a MongoDB database_. They're currently running on-premises and need assistance with migrating to Azure. They've decided they'd like to use _AKS_ for all three services. You think that they should use an external MongoDB hosted on CosmosDB, but they're adamant they want to use AKS for it. They have also indicated that they want to use _GitHub_ over Azure DevOps to handle code management and deployment. You help them set up some basic Iac using Bicep [Azure Verified Modules](https://aka.ms/avm) to deploy POC of the environment. You then identify the pieces you need to do the migration: _Dockerfiles_ (1 for the client, 1 for the API), a _GitHub Actions workflow_, and _K8s manifests_ for the Kubernetes deployment. You're knowledgable about the process and technology, but you need to speed up the process. You decide to use _GitHub Copilot for Azure_ to help you generate the deployment files. 
 
 ## Demo Steps
 
@@ -63,7 +63,7 @@ After using Copilot to generate the structure and some of the functionality for 
 
 ### Activity One: GitHub Actions
 
-Let's try to generate the GitHub Actions workflow ourselves. We showed some basic steps in the demo, but we had to make a few edits to the workflow and additional commands to make it work. Given the following information, try to use your knowledge and Copilot to generate the GitHub Actions workflow.
+Let's try to generate the GitHub Actions workflow ourselves. We showed some basic steps in the demo, but we had to make a few edits to the workflow and additional commands to make it work. Given the following information, try to use your knowledge and Copilot to generate the GitHub Actions workflow. 
 
 1. We have IaC we need to deploy that's written in Bicep using [Azure Verified Modules](https://aka.ms/avm). 
 2. Cluster is AAD enabled
