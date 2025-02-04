@@ -8,6 +8,10 @@
 4. VSCode 
 5. VSCode GitHub Copilot for Azure Extension
 
+## Demo Scenario
+
+We have customer Contoso who has a .NET 5 application with a frontend client, an API backend and a MongoDB. They're currently running on-premises and need assistance with migrating to Azure. They've decided they'd like to use AKS for all three services. You think that they should use an external MongoDB hosted on CosmosDB, but they're adamant they want to use AKS for it. They have also indicated that they want to use GitHub over Azure DevOps to handle code management and deployment. You help them set up some basic Iac using Bicep to do a POC of the platform. You then identify the pieces you need to do the migration: Dockerfiles (1 for the client, 1 for the API), a GitHub Actions workflow, and K8s manifest for the Kubernetes deployment. You're knowledgable about the process and technology, but you need to speed up the process. You decide to use GitHub Copilot for Azure to help you generate the deployment files. 
+
 ## Demo Steps
 
 For this example, the infrastructure has been developed in Bicep and added to the repository already. You will follow Copilot prompts for assisting with containerization and deployment using GitHub Actions. 
